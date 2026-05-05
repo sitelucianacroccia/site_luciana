@@ -62,7 +62,7 @@ export function AboutPageRevised() {
           </motion.div>
 
           <h1
-            className="mb-6 text-4xl leading-tight text-[#24322B] md:mb-8 md:text-6xl lg:text-7xl"
+            className="mb-6 text-4xl leading-tight text-[#304238] md:mb-8 md:text-6xl lg:text-7xl"
             style={{ fontFamily: 'var(--font-titles)' }}
           >
             Quem conduz o seu<br />
@@ -108,12 +108,12 @@ export function AboutPageRevised() {
 
                   <div className="flex-1">
                     <h3
-                      className="text-xl mb-3 text-[#24322B]"
+                      className="text-xl mb-3 text-[#304238]"
                       style={{ fontFamily: 'var(--font-titles)' }}
                     >
                       {item.title}
                     </h3>
-                    <p className="text-[#24322B]/80 leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>
+                    <p className="text-[#304238]/80 leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>
                       {item.description}
                     </p>
                   </div>
@@ -124,7 +124,7 @@ export function AboutPageRevised() {
         </div>
 
         <motion.div
-          className="space-y-8 text-lg text-[#24322B] leading-relaxed mb-16"
+          className="space-y-8 text-lg text-[#304238] leading-relaxed mb-16"
           style={{ fontFamily: 'var(--font-body)' }}
         >
           <motion.div
@@ -191,7 +191,7 @@ export function AboutPageRevised() {
 
         <section className="mb-20">
           <motion.h2
-            className="mb-10 text-center text-4xl text-[#24322B] md:mb-12 md:text-5xl"
+            className="mb-10 text-center text-4xl text-[#304238] md:mb-12 md:text-5xl"
             style={{ fontFamily: 'var(--font-titles)' }}
             {...fadeIn}
           >
@@ -212,7 +212,7 @@ export function AboutPageRevised() {
                   alt="Luciana no consultório"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#24322B]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#304238]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <motion.div
                   className="absolute bottom-0 left-0 right-0 p-6 text-white translate-y-full group-hover:translate-y-0 transition-transform duration-500"
                 >
@@ -239,7 +239,7 @@ export function AboutPageRevised() {
                   alt="Luciana com pêndulo"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#24322B]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#304238]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <motion.div
                   className="absolute bottom-0 left-0 right-0 p-6 text-white translate-y-full group-hover:translate-y-0 transition-transform duration-500"
                 >
@@ -266,7 +266,7 @@ export function AboutPageRevised() {
                   alt="Luciana na natureza"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#24322B]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#304238]/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 <motion.div
                   className="absolute bottom-0 left-0 right-0 p-6 text-white translate-y-full group-hover:translate-y-0 transition-transform duration-500"
                 >

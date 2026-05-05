@@ -111,7 +111,7 @@ export function ContactPageRevised() {
           </motion.div>
 
           <h1
-            className="mb-6 text-4xl leading-tight text-[#24322B] md:mb-10 md:text-6xl lg:text-7xl"
+            className="mb-6 text-4xl leading-tight text-[#304238] md:mb-10 md:text-6xl lg:text-7xl"
             style={{ fontFamily: 'var(--font-titles)' }}
           >
             O primeiro passo é<br />
@@ -125,11 +125,11 @@ export function ContactPageRevised() {
             {...fadeIn}
             transition={{ delay: 0.3 }}
           >
-            <p className="text-lg leading-relaxed text-[#24322B] md:text-2xl" style={{ fontFamily: 'var(--font-body)' }}>
+            <p className="text-lg leading-relaxed text-[#304238] md:text-2xl" style={{ fontFamily: 'var(--font-body)' }}>
               Se você chegou até aqui, <span className="text-[#8E6535] font-medium">não foi por acaso.</span>
             </p>
 
-            <p className="text-lg leading-relaxed text-[#24322B] md:text-2xl" style={{ fontFamily: 'var(--font-body)' }}>
+            <p className="text-lg leading-relaxed text-[#304238] md:text-2xl" style={{ fontFamily: 'var(--font-body)' }}>
               Algo dentro de você já sabe que precisa de mudança.
             </p>
 
@@ -164,13 +164,13 @@ export function ContactPageRevised() {
             viewport={{ once: true }}
             transition={{ delay: 0.6 }}
           >
-            <h2 className="text-3xl md:text-4xl text-[#24322B]" style={{ fontFamily: 'var(--font-titles)' }}>
+            <h2 className="text-3xl md:text-4xl text-[#304238]" style={{ fontFamily: 'var(--font-titles)' }}>
               Estou aqui para te guiar
             </h2>
             <p className="text-xl text-[#8E6535] italic leading-relaxed" style={{ fontFamily: 'var(--font-subtitles)' }}>
               Com mais de 20 anos de experiência
             </p>
-            <p className="text-lg text-[#24322B] leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>
+            <p className="text-lg text-[#304238] leading-relaxed" style={{ fontFamily: 'var(--font-body)' }}>
               Conduzo processos de transformação profunda através de técnicas holísticas integradas, sempre com diagnóstico preciso e acompanhamento individualizado.
             </p>
             <div className="flex flex-wrap gap-3">
@@ -211,7 +211,7 @@ export function ContactPageRevised() {
 
           <div className="relative">
             <h2
-              className="mb-8 text-center text-3xl text-[#24322B] md:mb-10 md:text-4xl"
+              className="mb-8 text-center text-3xl text-[#304238] md:mb-10 md:text-4xl"
               style={{ fontFamily: 'var(--font-titles)' }}
             >
               Preencha o formulário
@@ -219,7 +219,7 @@ export function ContactPageRevised() {
 
             <form onSubmit={handleSubmit} className="space-y-6 mb-10">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-[#24322B] mb-2" style={{ fontFamily: 'var(--font-body)' }}>
+                <label htmlFor="name" className="block text-sm font-medium text-[#304238] mb-2" style={{ fontFamily: 'var(--font-body)' }}>
                   Nome completo *
                 </label>
                 <input
@@ -237,7 +237,7 @@ export function ContactPageRevised() {
 
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-[#24322B] mb-2" style={{ fontFamily: 'var(--font-body)' }}>
+                  <label htmlFor="email" className="block text-sm font-medium text-[#304238] mb-2" style={{ fontFamily: 'var(--font-body)' }}>
                     E-mail *
                   </label>
                   <input
@@ -254,7 +254,7 @@ export function ContactPageRevised() {
                 </div>
 
                 <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-[#24322B] mb-2" style={{ fontFamily: 'var(--font-body)' }}>
+                  <label htmlFor="phone" className="block text-sm font-medium text-[#304238] mb-2" style={{ fontFamily: 'var(--font-body)' }}>
                     Telefone / WhatsApp *
                   </label>
                   <input
@@ -272,7 +272,7 @@ export function ContactPageRevised() {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-[#24322B] mb-2" style={{ fontFamily: 'var(--font-body)' }}>
+                <label htmlFor="message" className="block text-sm font-medium text-[#304238] mb-2" style={{ fontFamily: 'var(--font-body)' }}>
                   Conte-me sobre você, e como posso te ajudar? *
                 </label>
                 <textarea
@@ -356,7 +356,7 @@ export function ContactPageRevised() {
                       <p className="text-sm text-[#8E6535] mb-1" style={{ fontFamily: 'var(--font-body)' }}>
                         {contact.label}
                       </p>
-                      <p className="break-words text-base text-[#24322B] transition-colors group-hover:text-[#8E6535] sm:text-xl" style={{ fontFamily: 'var(--font-body)', fontWeight: 500 }}>
+                      <p className="break-words text-base text-[#304238] transition-colors group-hover:text-[#8E6535] sm:text-xl" style={{ fontFamily: 'var(--font-body)', fontWeight: 500 }}>
                         {contact.value}
                       </p>
                     </div>
@@ -396,11 +396,11 @@ export function ContactPageRevised() {
                       >
                         <Icon className="w-6 h-6 text-[#B58A4A]" />
                       </motion.div>
-                      <h3 className="text-lg text-[#24322B]" style={{ fontFamily: 'var(--font-titles)' }}>
+                      <h3 className="text-lg text-[#304238]" style={{ fontFamily: 'var(--font-titles)' }}>
                         {item.title}
                       </h3>
                     </div>
-                    <p className="text-[#24322B]/80" style={{ fontFamily: 'var(--font-body)' }}>
+                    <p className="text-[#304238]/80" style={{ fontFamily: 'var(--font-body)' }}>
                       {item.description}
                     </p>
                   </motion.div>
@@ -476,7 +476,7 @@ export function ContactPageRevised() {
           {...fadeIn}
           transition={{ delay: 1.5 }}
         >
-          <p className="text-sm text-[#24322B]/60 mb-2" style={{ fontFamily: 'var(--font-body)' }}>
+          <p className="text-sm text-[#304238]/60 mb-2" style={{ fontFamily: 'var(--font-body)' }}>
             Terapeuta Holística Registrada
           </p>
           <p className="text-lg text-[#8E6535]" style={{ fontFamily: 'var(--font-body)', fontWeight: 500 }}>

@@ -129,7 +129,7 @@ export function WorkPageEnhanced() {
     <div className="min-h-screen pb-20 pt-28 sm:pt-32 lg:pb-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <motion.h1
-          className="mb-6 text-center text-4xl text-[#24322B] md:mb-8 md:text-6xl"
+          className="mb-6 text-center text-4xl text-[#304238] md:mb-8 md:text-6xl"
           style={{ fontFamily: 'var(--font-titles)' }}
           {...fadeIn}
         >
@@ -141,7 +141,7 @@ export function WorkPageEnhanced() {
           {...fadeIn}
           transition={{ delay: 0.2 }}
         >
-          <p className="mb-6 text-lg leading-relaxed text-[#24322B] md:mb-8 md:text-xl" style={{ fontFamily: 'var(--font-body)' }}>
+          <p className="mb-6 text-lg leading-relaxed text-[#304238] md:mb-8 md:text-xl" style={{ fontFamily: 'var(--font-body)' }}>
             É uma terapia que trata o ser humano como um TODO, a nível espiritual, emocional, mental, físico e energético em seus corpos sutis.
           </p>
 
@@ -152,7 +152,7 @@ export function WorkPageEnhanced() {
 
         <section className="mb-16 md:mb-24">
           <motion.h2
-            className="mb-10 text-center text-3xl text-[#24322B] md:mb-12 md:text-4xl"
+            className="mb-10 text-center text-3xl text-[#304238] md:mb-12 md:text-4xl"
             style={{ fontFamily: 'var(--font-titles)' }}
             {...fadeIn}
           >
@@ -191,7 +191,7 @@ export function WorkPageEnhanced() {
                 }}
                 style={{ fontFamily: 'var(--font-body)' }}
               >
-                <p className="text-[#24322B]">{symptom}</p>
+                <p className="text-[#304238]">{symptom}</p>
               </motion.div>
             ))}
           </div>
@@ -199,7 +199,7 @@ export function WorkPageEnhanced() {
 
         <section className="mb-16 md:mb-24">
           <motion.h2
-            className="mb-10 text-center text-3xl text-[#24322B] md:mb-12 md:text-4xl"
+            className="mb-10 text-center text-3xl text-[#304238] md:mb-12 md:text-4xl"
             style={{ fontFamily: 'var(--font-titles)' }}
             {...fadeIn}
           >
@@ -210,7 +210,7 @@ export function WorkPageEnhanced() {
             className="mb-10 rounded-xl border border-[#B58A4A]/30 bg-[#EFE5D5]/30 p-5 text-center md:mb-12 md:p-6"
             {...fadeIn}
           >
-            <p className="text-lg text-[#24322B]" style={{ fontFamily: 'var(--font-body)' }}>
+            <p className="text-lg text-[#304238]" style={{ fontFamily: 'var(--font-body)' }}>
               <span className="text-[#8E6535]">✓</span> Todas as técnicas podem ser realizadas à distância com a mesma eficácia no campo energético<br />
               <span className="text-sm">(exceto Barras de Access, que é obrigatoriamente presencial)</span>
             </p>
@@ -253,7 +253,7 @@ export function WorkPageEnhanced() {
                         {service.category}
                       </p>
                       <h3
-                        className={`text-xl mb-1 ${isSelected ? 'text-white' : 'text-[#24322B]'}`}
+                        className={`text-xl mb-1 ${isSelected ? 'text-white' : 'text-[#304238]'}`}
                         style={{ fontFamily: 'var(--font-titles)' }}
                       >
                         {service.title}
@@ -262,7 +262,7 @@ export function WorkPageEnhanced() {
                   </div>
 
                   <p
-                    className={`text-sm mb-3 ${isSelected ? 'text-white/90' : 'text-[#24322B]'}`}
+                    className={`text-sm mb-3 ${isSelected ? 'text-white/90' : 'text-[#304238]'}`}
                     style={{ fontFamily: 'var(--font-body)' }}
                   >
                     {service.description}
@@ -278,7 +278,7 @@ export function WorkPageEnhanced() {
                     className="overflow-hidden"
                   >
                     <div className={`pt-3 mt-3 border-t ${isSelected ? 'border-white/30' : 'border-[#B58A4A]/30'}`}>
-                      <p className={`text-sm ${isSelected ? 'text-white' : 'text-[#24322B]'}`} style={{ fontFamily: 'var(--font-body)' }}>
+                      <p className={`text-sm ${isSelected ? 'text-white' : 'text-[#304238]'}`} style={{ fontFamily: 'var(--font-body)' }}>
                         {service.details}
                       </p>
                     </div>
@@ -298,7 +298,7 @@ export function WorkPageEnhanced() {
 
         <section className="mb-16 md:mb-24">
           <motion.h2
-            className="mb-10 text-center text-3xl text-[#24322B] md:mb-12 md:text-4xl"
+            className="mb-10 text-center text-3xl text-[#304238] md:mb-12 md:text-4xl"
             style={{ fontFamily: 'var(--font-titles)' }}
             {...fadeIn}
           >
@@ -321,7 +321,7 @@ export function WorkPageEnhanced() {
                   alt="Radiestesia com Pirâmide"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#24322B]/90 via-[#24322B]/50 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#304238]/90 via-[#304238]/50 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
                   <h3 className="text-2xl mb-2" style={{ fontFamily: 'var(--font-titles)' }}>
                     Radiestesia e Mesa Quântica
@@ -351,7 +351,7 @@ export function WorkPageEnhanced() {
                   alt="Atendimento Terapêutico"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#24322B]/90 via-[#24322B]/50 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#304238]/90 via-[#304238]/50 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
                   <h3 className="text-2xl mb-2" style={{ fontFamily: 'var(--font-titles)' }}>
                     Atendimento Personalizado

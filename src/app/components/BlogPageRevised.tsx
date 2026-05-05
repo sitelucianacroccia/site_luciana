@@ -169,7 +169,7 @@ export function BlogPageRevised() {
           </motion.div>
 
           <h1
-            className="mb-6 text-4xl leading-tight text-[#24322B] md:mb-10 md:text-6xl lg:text-7xl"
+            className="mb-6 text-4xl leading-tight text-[#304238] md:mb-10 md:text-6xl lg:text-7xl"
             style={{ fontFamily: 'var(--font-titles)' }}
           >
             Perguntas <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#B58A4A] to-[#8E6535]">Frequentes</span>
@@ -193,7 +193,7 @@ export function BlogPageRevised() {
             className={`rounded-full border-2 px-4 py-2 text-sm transition-all sm:px-6 sm:py-3 sm:text-base ${
               selectedCategory === null
                 ? 'bg-gradient-to-r from-[#B58A4A] to-[#8E6535] text-white border-[#B58A4A]'
-                : 'bg-white text-[#24322B] border-[#B58A4A]/30 hover:border-[#B58A4A]'
+                : 'bg-white text-[#304238] border-[#B58A4A]/30 hover:border-[#B58A4A]'
             }`}
             style={{ fontFamily: 'var(--font-body)' }}
             whileHover={{ scale: 1.05 }}
@@ -208,7 +208,7 @@ export function BlogPageRevised() {
               className={`rounded-full border-2 px-4 py-2 text-sm transition-all sm:px-6 sm:py-3 sm:text-base ${
                 selectedCategory === section.category
                   ? 'bg-gradient-to-r from-[#B58A4A] to-[#8E6535] text-white border-[#B58A4A]'
-                  : 'bg-white text-[#24322B] border-[#B58A4A]/30 hover:border-[#B58A4A]'
+                  : 'bg-white text-[#304238] border-[#B58A4A]/30 hover:border-[#B58A4A]'
               }`}
               style={{ fontFamily: 'var(--font-body)' }}
               whileHover={{ scale: 1.05 }}
@@ -238,7 +238,7 @@ export function BlogPageRevised() {
                     <Sparkles className="w-7 h-7 text-white" />
                   </motion.div>
                   <h2
-                    className="text-2xl text-[#24322B] md:text-4xl"
+                    className="text-2xl text-[#304238] md:text-4xl"
                     style={{ fontFamily: 'var(--font-titles)' }}
                   >
                     {section.category}
@@ -272,7 +272,7 @@ export function BlogPageRevised() {
                           className="relative flex w-full items-center justify-between p-5 text-left transition-colors hover:bg-[#F7F2EA]/50 md:p-8"
                         >
                           <h3
-                            className="flex items-center gap-3 pr-4 text-base text-[#24322B] md:text-xl"
+                            className="flex items-center gap-3 pr-4 text-base text-[#304238] md:text-xl"
                             style={{ fontFamily: 'var(--font-titles)' }}
                           >
                             <motion.span
@@ -306,7 +306,7 @@ export function BlogPageRevised() {
                               <div className="px-6 md:px-8 pb-8 pt-0">
                                 <div className="pt-6 border-t-2 border-[#B58A4A]/20">
                                   <motion.p
-                                    className="text-[#24322B] text-base md:text-lg leading-relaxed"
+                                    className="text-[#304238] text-base md:text-lg leading-relaxed"
                                     style={{ fontFamily: 'var(--font-body)' }}
                                     initial={{ y: -10 }}
                                     animate={{ y: 0 }}
