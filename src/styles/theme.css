@@ -3,15 +3,15 @@
 :root {
   --font-size: 16px;
   --background: #F7F2EA;
-  --foreground: #24322B;
+  --foreground: #304238;
   --card: #ffffff;
-  --card-foreground: #24322B;
+  --card-foreground: #304238;
   --popover: #ffffff;
-  --popover-foreground: #24322B;
+  --popover-foreground: #304238;
   --primary: #B58A4A;
   --primary-foreground: #FFFFFF;
   --secondary: #EFE5D5;
-  --secondary-foreground: #24322B;
+  --secondary-foreground: #304238;
   --muted: #ececf0;
   --muted-foreground: #717182;
   --accent: #8E6535;
@@ -32,7 +32,7 @@
   --chart-5: #e5b84f;
   --radius: 0.625rem;
   --sidebar: #fafafa;
-  --sidebar-foreground: #24322B;
+  --sidebar-foreground: #304238;
   --sidebar-primary: #030213;
   --sidebar-primary-foreground: #fafafa;
   --sidebar-accent: #f5f5f5;
@@ -204,6 +204,267 @@
   }
 }
 
+.testimonial-marquee {
+  --testimonial-gap: clamp(4rem, 8vw, 8.5rem);
+  position: relative;
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+}
+
+.testimonial-marquee::before,
+.testimonial-marquee::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  width: min(14vw, 9rem);
+  height: 100%;
+  pointer-events: none;
+}
+
+.testimonial-marquee::before {
+  left: 0;
+  background: linear-gradient(90deg, #FBF8F1 0%, rgba(251, 248, 241, 0) 100%);
+}
+
+.testimonial-marquee::after {
+  right: 0;
+  background: linear-gradient(270deg, #FBF8F1 0%, rgba(251, 248, 241, 0) 100%);
+}
+
+.testimonial-track {
+  display: flex;
+  width: max-content;
+  gap: var(--testimonial-gap);
+  padding-inline: clamp(1.25rem, 5vw, 4.5rem);
+  animation: testimonial-scroll 44s linear infinite;
+}
+
+.testimonial-marquee:hover .testimonial-track {
+  animation-play-state: paused;
+}
+
+.testimonial-card {
+  width: min(82vw, 34rem);
+  flex: 0 0 auto;
+  padding-block: 0.5rem 1rem;
+}
+
+.testimonial-name {
+  color: #7B6D5C;
+  font-size: 0.98rem;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.testimonial-name::before {
+  content: "— ";
+}
+
+.testimonial-copy {
+  margin-top: 1.15rem;
+  color: #304238;
+  font-size: clamp(1.65rem, 2.35vw, 2.45rem);
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.38;
+}
+
+.process-steps {
+  display: grid;
+  overflow: hidden;
+  border-top: 1px solid rgba(142, 101, 53, 0.24);
+  border-bottom: 1px solid rgba(142, 101, 53, 0.24);
+}
+
+.process-step {
+  position: relative;
+  padding: clamp(1.5rem, 3vw, 2.15rem) 0;
+}
+
+.process-step + .process-step {
+  border-top: 1px solid rgba(142, 101, 53, 0.16);
+}
+
+.process-step-number {
+  color: #8E6535;
+  font-size: 0.84rem;
+  letter-spacing: 0.18em;
+  line-height: 1;
+}
+
+.process-step-title {
+  margin-top: 1.7rem;
+  color: #304238;
+  font-size: clamp(1.75rem, 2vw, 2.2rem);
+  line-height: 1.12;
+}
+
+.process-step-description {
+  margin-top: 1rem;
+  max-width: 24rem;
+  color: #657267;
+  font-size: 1rem;
+  line-height: 1.85;
+}
+
+.whatsapp-float {
+  position: fixed;
+  right: max(1.25rem, env(safe-area-inset-right));
+  bottom: max(1.25rem, env(safe-area-inset-bottom));
+  z-index: 50;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.whatsapp-bubble {
+  max-width: 12rem;
+  border: 1px solid rgba(216, 196, 164, 0.42);
+  border-radius: 999px;
+  background: rgba(251, 248, 241, 0.94);
+  color: #304238;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  padding: 0.78rem 1rem;
+  box-shadow: 0 14px 34px rgba(43, 35, 24, 0.14);
+  opacity: 0;
+  transform: translateX(0.75rem);
+  transition: opacity 220ms ease, transform 220ms ease;
+  white-space: nowrap;
+}
+
+.whatsapp-symbol {
+  position: relative;
+  isolation: isolate;
+  display: grid;
+  width: 4rem;
+  height: 4rem;
+  place-items: center;
+  border-radius: 999px;
+  background: #2bb741;
+  box-shadow: 0 18px 44px rgba(43, 35, 24, 0.2);
+  animation: whatsapp-pulse 2.8s ease-in-out infinite;
+  transition: opacity 220ms ease, transform 220ms ease, background-color 220ms ease, box-shadow 220ms ease;
+}
+
+.whatsapp-symbol::before,
+.whatsapp-symbol::after {
+  content: "";
+  position: absolute;
+  inset: -0.35rem;
+  z-index: -1;
+  border-radius: inherit;
+  border: 1px solid rgba(214, 182, 128, 0.72);
+  opacity: 0;
+  transform: scale(0.78);
+  animation: whatsapp-gold-wave 2.8s ease-out infinite;
+}
+
+.whatsapp-symbol::after {
+  animation-delay: 1.4s;
+}
+
+.whatsapp-symbol-fenix {
+  position: absolute;
+  right: 0;
+  background: #304238;
+  opacity: 0;
+  transform: scale(0.78) rotate(-10deg);
+}
+
+.whatsapp-symbol-fenix img {
+  width: 2.6rem;
+  height: 2.6rem;
+  object-fit: contain;
+}
+
+.whatsapp-float:hover .whatsapp-bubble,
+.whatsapp-float:focus-visible .whatsapp-bubble,
+.whatsapp-float:active .whatsapp-bubble {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.whatsapp-float:hover .whatsapp-symbol-chat,
+.whatsapp-float:focus-visible .whatsapp-symbol-chat,
+.whatsapp-float:active .whatsapp-symbol-chat {
+  opacity: 0;
+  transform: scale(0.82) rotate(10deg);
+  animation-play-state: paused;
+}
+
+.whatsapp-float:hover .whatsapp-symbol-fenix,
+.whatsapp-float:focus-visible .whatsapp-symbol-fenix,
+.whatsapp-float:active .whatsapp-symbol-fenix {
+  background: #ffffff;
+  box-shadow: 0 18px 48px rgba(142, 101, 53, 0.26);
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+@media (min-width: 768px) {
+  .process-steps {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .process-step {
+    min-height: 17rem;
+    padding-inline: clamp(1.25rem, 2.4vw, 2rem);
+  }
+
+  .process-step + .process-step {
+    border-top: 0;
+    border-left: 1px solid rgba(142, 101, 53, 0.18);
+  }
+}
+
+@keyframes testimonial-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-50% - (var(--testimonial-gap) / 2)));
+  }
+}
+
+@keyframes whatsapp-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 18px 44px rgba(43, 35, 24, 0.2);
+  }
+
+  50% {
+    transform: scale(1.055);
+    box-shadow: 0 20px 54px rgba(142, 101, 53, 0.28);
+  }
+}
+
+@keyframes whatsapp-gold-wave {
+  0% {
+    opacity: 0;
+    transform: scale(0.78);
+  }
+
+  22% {
+    opacity: 0.58;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.72);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -212,5 +473,16 @@
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: 0.01ms !important;
+  }
+
+  .testimonial-track {
+    animation: none !important;
+    overflow-x: auto;
+  }
+
+  .whatsapp-symbol,
+  .whatsapp-symbol::before,
+  .whatsapp-symbol::after {
+    animation: none !important;
   }
 }

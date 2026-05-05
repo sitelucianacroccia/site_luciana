@@ -20,17 +20,6 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    if (mobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [mobileMenuOpen]);
-
   const links = [
     { name: 'Início', id: 'home' },
     { name: 'Quem Sou', id: 'about' },
@@ -42,28 +31,31 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
   return (
     <>
       <motion.nav
-        className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
-          scrolled
-            ? 'border-b border-[#D8C4A4] bg-[#FBF8F1]/96 shadow-[0_14px_40px_rgba(36,50,43,0.08)] backdrop-blur-xl'
-            : 'border-b border-white/12 bg-[#FBF8F1]/90 backdrop-blur-md'
-        }`}
+        className="pointer-events-none fixed left-0 right-0 top-0 z-50 px-4 pt-4 transition-all duration-300 sm:px-6 lg:px-10"
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ type: 'spring', stiffness: 100, damping: 20 }}
-        style={{
-          boxShadow: scrolled ? '0 14px 40px rgba(36, 50, 43, 0.08)' : 'none'
-        }}
       >
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-10">
-        <motion.div
-          className="group relative min-w-0 cursor-pointer"
-          onClick={() => onNavigate('home')}
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
+        <div
+          className={`pointer-events-auto mx-auto flex w-fit max-w-[calc(100vw-2rem)] items-center justify-between gap-3 rounded-full border px-3 py-2 transition-all duration-300 sm:max-w-[calc(100vw-3rem)] ${
+            scrolled
+              ? 'border-[#D8C4A4]/80 bg-[#FBF8F1]/94 shadow-[0_18px_50px_rgba(43,35,24,0.12)] backdrop-blur-xl'
+              : 'border-white/30 bg-[#FBF8F1]/80 shadow-[0_16px_44px_rgba(43,35,24,0.08)] backdrop-blur-lg'
+          }`}
         >
-          <div className="flex min-w-0 items-center gap-3">
+          <motion.button
+            type="button"
+            className="group flex min-w-0 items-center gap-3 rounded-full py-1 pl-1 pr-3 text-left"
+            onClick={() => {
+              onNavigate('home');
+              setMobileMenuOpen(false);
+            }}
+            whileHover={{ scale: 1.01 }}
+            whileTap={{ scale: 0.98 }}
+            aria-label="Ir para início"
+          >
             <motion.div
-              className="relative overflow-hidden rounded-md bg-[#24322B] p-2"
+              className="relative grid h-11 w-11 shrink-0 place-items-center overflow-hidden rounded-full bg-[#304238]"
               whileHover={{ scale: 1.03 }}
               transition={{ duration: 0.4 }}
             >
@@ -75,79 +67,93 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
             </motion.div>
 
             <div className="min-w-0">
-              <h1
-                className="max-w-[13rem] truncate text-lg tracking-tight text-[#24322B] transition-colors group-hover:text-[#8E6535] sm:max-w-none sm:text-xl"
+              <span
+                className="block max-w-[13rem] truncate text-base tracking-tight text-[#304238] transition-colors group-hover:text-[#8E6535] sm:max-w-none sm:text-lg"
                 style={{ fontFamily: 'var(--font-titles)' }}
               >
                 Luciana Croccia D'Onofrio
-              </h1>
+              </span>
               <p
-                className="mt-0.5 hidden text-xs italic text-[#8E6535] sm:block"
+                className="mt-0.5 hidden text-xs italic text-[#8E6535] xl:block"
                 style={{ fontFamily: 'var(--font-subtitles)' }}
               >
                 Equilíbrio, Reconexão e Autoconhecimento
               </p>
             </div>
-          </div>
-        </motion.div>
+          </motion.button>
 
-        <div className="hidden items-center gap-1 lg:flex xl:gap-2">
-          {links.map((link) => {
-            const isActive = currentPage === link.id;
-            return (
-              <motion.button
-                key={link.id}
-                onClick={() => onNavigate(link.id)}
-                className={`
-                  relative rounded-md px-3.5 py-2 text-sm uppercase tracking-[0.08em] transition-colors xl:px-4
-                  ${
-                    isActive
-                      ? 'text-[#24322B]'
-                      : 'text-[#56645B] hover:bg-[#EFE5D5] hover:text-[#24322B]'
-                  }
-                `}
-                style={{ fontFamily: 'var(--font-body)', fontWeight: isActive ? 500 : 400 }}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                {isActive && (
-                  <motion.div
-                    className="absolute inset-x-3 bottom-1 h-px bg-[#B58A4A]"
-                    layoutId="activeNav"
-                    transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                  />
-                )}
-                <span className="relative z-10 flex items-center gap-2">
-                  {link.name}
+          <div className="hidden items-center gap-1 rounded-full border border-[#D8C4A4]/55 bg-white/35 p-1 xl:flex xl:gap-1.5">
+            {links.map((link) => {
+              const isActive = currentPage === link.id;
+              return (
+                <motion.button
+                  key={link.id}
+                  onClick={() => onNavigate(link.id)}
+                  className={`
+                    relative rounded-full px-4 py-2.5 text-xs uppercase tracking-[0.1em] transition-colors xl:px-5
+                    ${
+                      isActive
+                        ? 'text-white'
+                        : 'text-[#56645B] hover:bg-[#EFE5D5]/80 hover:text-[#304238]'
+                    }
+                  `}
+                  style={{ fontFamily: 'var(--font-body)', fontWeight: isActive ? 600 : 500 }}
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.96 }}
+                >
                   {isActive && (
                     <motion.span
-                      initial={{ scale: 0 }}
-                      animate={{ scale: 1 }}
-                      className="hidden"
+                      className="absolute inset-0 rounded-full bg-[#304238]"
+                      layoutId="activeNavPill"
+                      transition={{ type: 'spring', stiffness: 360, damping: 32 }}
                     />
                   )}
-                </span>
-              </motion.button>
-            );
-          })}
-        </div>
+                  <span className="relative z-10">{link.name}</span>
+                </motion.button>
+              );
+            })}
+          </div>
 
-        <motion.button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="rounded-md bg-[#24322B] p-3 text-white lg:hidden"
-          whileTap={{ scale: 0.9 }}
-          aria-label="Menu de navegação"
-          aria-expanded={mobileMenuOpen}
-        >
-          <Menu className="h-6 w-6" />
-        </motion.button>
+          <motion.button
+            type="button"
+            onClick={() => setMobileMenuOpen((open) => !open)}
+            className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-[#304238] text-white xl:hidden"
+            whileTap={{ scale: 0.9 }}
+            aria-label={mobileMenuOpen ? 'Fechar menu de navegação' : 'Abrir menu de navegação'}
+            aria-expanded={mobileMenuOpen}
+          >
+            <AnimatePresence mode="wait" initial={false}>
+              {mobileMenuOpen ? (
+                <motion.span
+                  key="close"
+                  initial={{ opacity: 0, rotate: -45, scale: 0.8 }}
+                  animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                  exit={{ opacity: 0, rotate: 45, scale: 0.8 }}
+                  transition={{ duration: 0.18 }}
+                >
+                  <X className="h-5 w-5" />
+                </motion.span>
+              ) : (
+                <motion.span
+                  key="menu"
+                  initial={{ opacity: 0, rotate: 45, scale: 0.8 }}
+                  animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                  exit={{ opacity: 0, rotate: -45, scale: 0.8 }}
+                  transition={{ duration: 0.18 }}
+                >
+                  <Menu className="h-5 w-5" />
+                </motion.span>
+              )}
+            </AnimatePresence>
+          </motion.button>
         </div>
       </motion.nav>
+
       <AnimatePresence>
         {mobileMenuOpen && (
           <>
             <motion.div
-              className="fixed inset-0 z-40 bg-[#121A16]/60 backdrop-blur-sm lg:hidden"
+              className="fixed inset-0 z-40 bg-[#121A16]/18 backdrop-blur-[2px] xl:hidden"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -155,65 +161,46 @@ export function Navigation({ currentPage, onNavigate }: NavigationProps) {
             />
 
             <motion.div
-              className="fixed bottom-0 right-0 top-0 z-50 w-[min(22rem,calc(100vw-1.25rem))] overflow-y-auto bg-[#FBF8F1] shadow-2xl lg:hidden"
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+              className="fixed left-4 right-4 top-[5.6rem] z-50 overflow-hidden rounded-[1.75rem] border border-[#D8C4A4]/75 bg-[#FBF8F1]/96 p-3 shadow-[0_24px_70px_rgba(43,35,24,0.18)] backdrop-blur-xl sm:left-6 sm:right-6 xl:hidden"
+              initial={{ opacity: 0, y: -12, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: -12, scale: 0.98 }}
+              transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="p-6">
-                <div className="flex items-center justify-between mb-8">
-                  <h2
-                    className="text-xl text-[#24322B]"
-                    style={{ fontFamily: 'var(--font-titles)' }}
-                  >
-                    Menu
-                  </h2>
-                  <motion.button
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="rounded-md bg-[#EFE5D5] p-2 text-[#24322B]"
-                    whileTap={{ scale: 0.9 }}
-                    aria-label="Fechar menu"
-                  >
-                    <X className="w-6 h-6" />
-                  </motion.button>
-                </div>
-
-                <div className="space-y-3">
-                  {links.map((link) => {
-                    const isActive = currentPage === link.id;
-                    return (
-                      <motion.button
-                        key={link.id}
-                        onClick={() => {
-                          onNavigate(link.id);
-                          setMobileMenuOpen(false);
-                        }}
-                        className={`
-                          w-full rounded-md px-5 py-4 text-left transition-all
-                          ${
-                            isActive
-                              ? 'bg-[#24322B] text-white'
-                              : 'text-[#24322B] hover:bg-[#EFE5D5]'
-                          }
-                        `}
-                        style={{ fontFamily: 'var(--font-body)', fontWeight: isActive ? 500 : 400 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        <span className="flex items-center justify-between">
-                          {link.name}
-                          {isActive && (
-                            <motion.span
-                              initial={{ scale: 0 }}
-                              animate={{ scale: 1 }}
-                              className="w-2 h-2 bg-white rounded-full"
-                            />
-                          )}
-                        </span>
-                      </motion.button>
-                    );
-                  })}
-                </div>
+              <div className="space-y-2">
+                {links.map((link) => {
+                  const isActive = currentPage === link.id;
+                  return (
+                    <motion.button
+                      key={link.id}
+                      onClick={() => {
+                        onNavigate(link.id);
+                        setMobileMenuOpen(false);
+                      }}
+                      className={`
+                        w-full rounded-full px-5 py-4 text-left text-sm uppercase tracking-[0.1em] transition-all
+                        ${
+                          isActive
+                            ? 'bg-[#304238] text-white'
+                            : 'text-[#304238] hover:bg-[#EFE5D5]'
+                        }
+                      `}
+                      style={{ fontFamily: 'var(--font-body)', fontWeight: isActive ? 600 : 500 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <span className="flex items-center justify-between gap-3">
+                        {link.name}
+                        {isActive && (
+                          <motion.span
+                            initial={{ scale: 0 }}
+                            animate={{ scale: 1 }}
+                            className="h-1.5 w-1.5 rounded-full bg-white"
+                          />
+                        )}
+                      </span>
+                    </motion.button>
+                  );
+                })}
               </div>
             </motion.div>
           </>

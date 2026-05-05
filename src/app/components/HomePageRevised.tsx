@@ -7,6 +7,7 @@ import {
   Heart,
   Layers3,
   Lightbulb,
+  MessageCircle,
   ShieldCheck,
   Sparkles,
   Target,
@@ -68,16 +69,43 @@ const outcomes = [
   'Consciência profunda'
 ];
 
+const patientReviews = [
+  {
+    name: 'Marina Azevedo',
+    review: 'A Luciana conduziu meu processo com muita seriedade e sensibilidade. Saí da avaliação com clareza sobre padrões que eu não conseguia enxergar.'
+  },
+  {
+    name: 'Renata Martins',
+    review: 'O atendimento foi profundo, acolhedor e muito objetivo. Senti confiança no método e percebi leveza já nos primeiros dias.'
+  },
+  {
+    name: 'Claudia Ribeiro',
+    review: 'Cheguei confusa e ansiosa, mas encontrei uma condução firme e respeitosa. A leitura trouxe direção para um momento muito importante.'
+  },
+  {
+    name: 'Patricia Almeida',
+    review: 'A abordagem da Luciana vai além do óbvio. Ela identifica a raiz do processo e explica tudo com cuidado, sem pressa e sem julgamento.'
+  },
+  {
+    name: 'Beatriz Carvalho',
+    review: 'Foi uma experiência transformadora e muito humana. O atendimento me ajudou a entender ciclos repetidos e escolher novos caminhos.'
+  }
+];
+
 export function HomePageRevised({ onNavigate }: HomePageRevisedProps) {
+  const marqueeReviews = [...patientReviews, ...patientReviews];
+  const whatsappMessage = encodeURIComponent('Olá, Luciana. Gostaria de agendar uma avaliação.');
+  const whatsappUrl = `https://wa.me/5511998234317?text=${whatsappMessage}`;
+
   return (
-    <main className="min-h-screen bg-[#F7F2EA] text-[#24322B]">
+    <main className="min-h-screen bg-[#F7F2EA] text-[#304238]">
       <section className="relative isolate min-h-[calc(100svh-4rem)] overflow-hidden pt-20 text-white">
         <img
           src={lucianaFlores}
           alt="Luciana em ambiente natural"
           className="absolute inset-0 h-full w-full object-cover object-[50%_32%]"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(25,35,30,0.92)_0%,rgba(25,35,30,0.74)_42%,rgba(25,35,30,0.34)_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(42,58,49,0.92)_0%,rgba(42,58,49,0.74)_42%,rgba(42,58,49,0.34)_100%)]" />
         <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#F7F2EA] to-transparent" />
 
         <div className="relative z-10 mx-auto flex min-h-[calc(100svh-5rem)] max-w-7xl flex-col justify-center px-5 py-12 sm:px-8 lg:px-10">
@@ -144,7 +172,7 @@ export function HomePageRevised({ onNavigate }: HomePageRevisedProps) {
             <p className="mb-4 text-sm uppercase tracking-[0.18em] text-[#8E6535]" style={{ fontFamily: 'var(--font-body)' }}>
               Quando procurar ajuda
             </p>
-            <h2 className="text-4xl leading-tight text-[#24322B] md:text-5xl" style={{ fontFamily: 'var(--font-titles)' }}>
+            <h2 className="text-4xl leading-tight text-[#304238] md:text-5xl" style={{ fontFamily: 'var(--font-titles)' }}>
               O sintoma quase nunca é o começo da história.
             </h2>
             <p className="mt-6 text-lg leading-8 text-[#56645B]" style={{ fontFamily: 'var(--font-body)' }}>
@@ -164,10 +192,10 @@ export function HomePageRevised({ onNavigate }: HomePageRevisedProps) {
                   viewport={{ once: true }}
                   transition={{ duration: 0.45, delay: index * 0.04 }}
                 >
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-[#24322B] text-[#EFE5D5]">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-[#304238] text-[#EFE5D5]">
                     <Icon className="h-5 w-5" />
                   </span>
-                  <p className="text-lg leading-7 text-[#24322B]" style={{ fontFamily: 'var(--font-body)' }}>
+                  <p className="text-lg leading-7 text-[#304238]" style={{ fontFamily: 'var(--font-body)' }}>
                     {symptom.text}
                   </p>
                 </motion.div>
@@ -177,7 +205,7 @@ export function HomePageRevised({ onNavigate }: HomePageRevisedProps) {
         </div>
       </section>
 
-      <section className="bg-[#24322B] px-5 py-24 text-white sm:px-8 lg:px-10">
+      <section className="bg-[#304238] px-5 py-24 text-white sm:px-8 lg:px-10">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_0.9fr] lg:items-center">
           <motion.div {...reveal}>
             <p className="mb-4 text-sm uppercase tracking-[0.18em] text-[#D6B680]" style={{ fontFamily: 'var(--font-body)' }}>
@@ -221,27 +249,59 @@ export function HomePageRevised({ onNavigate }: HomePageRevisedProps) {
         </div>
       </section>
 
+      <section className="overflow-hidden bg-[#FBF8F1] py-24 md:py-28">
+        <div className="mx-auto mb-14 max-w-7xl px-5 text-center sm:px-8 lg:px-10">
+          <motion.div className="mx-auto max-w-3xl" {...reveal}>
+            <p className="mb-4 text-sm uppercase tracking-[0.18em] text-[#8E6535]" style={{ fontFamily: 'var(--font-body)' }}>
+              Avaliações de pacientes
+            </p>
+            <h2 className="text-4xl leading-tight text-[#304238] md:text-5xl" style={{ fontFamily: 'var(--font-titles)' }}>
+              Histórias de quem começou olhando para a raiz.
+            </h2>
+          </motion.div>
+        </div>
+
+        <div className="testimonial-marquee" aria-label="Avaliações de pacientes">
+          <div className="testimonial-track">
+            {marqueeReviews.map((item, index) => (
+              <article
+                key={`${item.name}-${index}`}
+                className="testimonial-card"
+                aria-hidden={index >= patientReviews.length}
+              >
+                <p className="testimonial-name" style={{ fontFamily: 'var(--font-body)' }}>
+                  {item.name}
+                </p>
+                <p className="testimonial-copy" style={{ fontFamily: 'var(--font-subtitles)' }}>
+                  “{item.review}”
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="px-5 py-24 sm:px-8 lg:px-10">
         <div className="mx-auto max-w-7xl">
           <motion.div className="mb-12 max-w-3xl" {...reveal}>
             <p className="mb-4 text-sm uppercase tracking-[0.18em] text-[#8E6535]" style={{ fontFamily: 'var(--font-body)' }}>
               Como funciona
             </p>
-            <h2 className="text-4xl leading-tight text-[#24322B] md:text-5xl" style={{ fontFamily: 'var(--font-titles)' }}>
+            <h2 className="text-4xl leading-tight text-[#304238] md:text-5xl" style={{ fontFamily: 'var(--font-titles)' }}>
               Um processo claro para uma investigação profunda.
             </h2>
           </motion.div>
 
-          <div className="grid gap-px overflow-hidden rounded-lg border border-[#D8C4A4] bg-[#D8C4A4] md:grid-cols-4">
+          <div className="process-steps">
             {processSteps.map((step) => (
-              <motion.div key={step.number} className="bg-[#FBF8F1] p-6" {...reveal}>
-                <p className="text-sm uppercase tracking-[0.16em] text-[#8E6535]" style={{ fontFamily: 'var(--font-body)' }}>
+              <motion.div key={step.number} className="process-step" {...reveal}>
+                <p className="process-step-number" style={{ fontFamily: 'var(--font-body)' }}>
                   {step.number}
                 </p>
-                <h3 className="mt-8 text-2xl leading-tight text-[#24322B]" style={{ fontFamily: 'var(--font-titles)' }}>
+                <h3 className="process-step-title" style={{ fontFamily: 'var(--font-titles)' }}>
                   {step.title}
                 </h3>
-                <p className="mt-4 leading-7 text-[#56645B]" style={{ fontFamily: 'var(--font-body)' }}>
+                <p className="process-step-description" style={{ fontFamily: 'var(--font-body)' }}>
                   {step.description}
                 </p>
               </motion.div>
@@ -257,7 +317,7 @@ export function HomePageRevised({ onNavigate }: HomePageRevisedProps) {
           </div>
           <motion.div className="p-8 sm:p-12 lg:p-16" {...reveal}>
             <Compass className="mb-8 h-10 w-10 text-[#8E6535]" />
-            <h2 className="text-4xl leading-tight text-[#24322B] md:text-5xl" style={{ fontFamily: 'var(--font-titles)' }}>
+            <h2 className="text-4xl leading-tight text-[#304238] md:text-5xl" style={{ fontFamily: 'var(--font-titles)' }}>
               A transformação fica mais real quando encontra direção.
             </h2>
             <p className="mt-6 text-lg leading-8 text-[#56645B]" style={{ fontFamily: 'var(--font-body)' }}>
@@ -266,10 +326,10 @@ export function HomePageRevised({ onNavigate }: HomePageRevisedProps) {
             <div className="mt-9 grid gap-3 sm:grid-cols-2">
               {outcomes.map((outcome) => (
                 <div key={outcome} className="flex items-center gap-3">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#24322B] text-[#EFE5D5]">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#304238] text-[#EFE5D5]">
                     <ShieldCheck className="h-4 w-4" />
                   </span>
-                  <span className="text-[#24322B]" style={{ fontFamily: 'var(--font-body)' }}>
+                  <span className="text-[#304238]" style={{ fontFamily: 'var(--font-body)' }}>
                     {outcome}
                   </span>
                 </div>
@@ -283,7 +343,7 @@ export function HomePageRevised({ onNavigate }: HomePageRevisedProps) {
         <div className="mx-auto flex max-w-7xl flex-col gap-8 border-y border-[#D8C4A4] py-12 md:flex-row md:items-center md:justify-between">
           <div className="max-w-3xl">
             <Layers3 className="mb-5 h-9 w-9 text-[#8E6535]" />
-            <h2 className="text-4xl leading-tight text-[#24322B]" style={{ fontFamily: 'var(--font-titles)' }}>
+            <h2 className="text-4xl leading-tight text-[#304238]" style={{ fontFamily: 'var(--font-titles)' }}>
               Pronta para olhar mais profundo?
             </h2>
             <p className="mt-4 text-lg leading-8 text-[#56645B]" style={{ fontFamily: 'var(--font-body)' }}>
@@ -298,6 +358,22 @@ export function HomePageRevised({ onNavigate }: HomePageRevisedProps) {
           </PremiumButton>
         </div>
       </section>
+
+      <a
+        className="whatsapp-float"
+        href={whatsappUrl}
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Agendar avaliação pelo WhatsApp"
+      >
+        <span className="whatsapp-bubble">Agendar avaliação</span>
+        <span className="whatsapp-symbol whatsapp-symbol-chat" aria-hidden="true">
+          <MessageCircle className="h-7 w-7" />
+        </span>
+        <span className="whatsapp-symbol whatsapp-symbol-fenix" aria-hidden="true">
+          <img src={fenixLogo} alt="" />
+        </span>
+      </a>
     </main>
   );
 }
